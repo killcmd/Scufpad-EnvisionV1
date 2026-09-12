@@ -40,12 +40,12 @@ internal static class DeviceDiscovery
     /// <summary>
     ///     Corsair/Scuf USB Vendor ID.
     /// </summary>
-    private const ushort ScufVendorId = 0x1b1c;
+    private const ushort ScufVendorId = 0x2e95;
 
     /// <summary>
     ///     Scuf Envision Pro V2 USB Product ID.
     /// </summary>
-    private const ushort ScufProductId = 0x3a05;
+    private const ushort ScufProductId = 0x434e;
 
     /// <summary>
     ///     Searches for connected Scuf Envision Pro V2 controller devices.

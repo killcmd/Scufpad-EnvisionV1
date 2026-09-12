@@ -92,8 +92,8 @@ internal sealed class HidrawReader : IDisposable
         }
 
         // Verify it's the Scuf controller
-        const ushort ScufVendorId = 0x1b1c;
-        const ushort ScufProductId = 0x3a05;
+        const ushort ScufVendorId = 0x2e95;
+        const ushort ScufProductId = 0x434e;
 
         return (ushort)devInfo.Vendor == ScufVendorId && (ushort)devInfo.Product == ScufProductId;
     }

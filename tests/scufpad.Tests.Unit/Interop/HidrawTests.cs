@@ -29,12 +29,12 @@ public class HidrawDevInfoTests
     {
         var devInfo = new HidrawDevInfo(
             3, // USB
-            0x1b1c, // Scuf/Corsair
-            0x3a05);
+            0x2e95, // Scuf/Corsair
+            0x434e);
 
         devInfo.BusType.ShouldBe(3u);
-        devInfo.Vendor.ShouldBe((short)0x1b1c);
-        devInfo.Product.ShouldBe((short)0x3a05);
+        devInfo.Vendor.ShouldBe((short)0x2e95);
+        devInfo.Product.ShouldBe((short)0x434e);
     }
 
     [Test]
@@ -53,9 +53,9 @@ public class HidrawDevInfoTests
     public void HidrawDevInfo_ShouldBeReadonlyStruct()
     {
         // Verify that HidrawDevInfo is a readonly struct
-        var info = new HidrawDevInfo(3, 0x1b1c, 0x3a05);
+        var info = new HidrawDevInfo(3, 0x2e95, 0x434e);
         ReadonlyDevInfoHolder holder = new(info);
-        holder.Info.Vendor.ShouldBe((short)0x1b1c);
+        holder.Info.Vendor.ShouldBe((short)0x2e95);
     }
 
     private readonly struct ReadonlyDevInfoHolder

@@ -1,11 +1,11 @@
 # Scufpad
 
-A Linux application that bridges a Scuf Envision Pro V2 controller to a virtual Xbox Elite 2 controller via the uinput
+A Linux application that bridges a Scuf Envision Pro V1 controller to a virtual Xbox Elite 2 controller via the uinput
 subsystem.
 
 ## Overview
 
-The Scuf Envision Pro V2 controller (VID: `0x1b1c`, PID: `0x3a05`) uses highly non-standard evdev mappings that cause
+The Scuf Envision Pro V1 controller (VID: `0x2e95`, PID: `0x434e`) uses highly non-standard evdev mappings that cause
 incorrect button/axis assignments in most Linux games. This bridge:
 
 1. **Reads** input from the physical Scuf controller via evdev
@@ -18,15 +18,15 @@ The virtual controller appears to games as a standard Xbox Elite 2 controller (M
 
 - Linux with uinput support
 - .NET 10.0 or later
-- Scuf Envision Pro V2 controller (VID: `0x1b1c`, PID: `0x3a05`)
+- Scuf Envision Pro V1 controller (VID: `0x2e95`, PID: `0x434e`)
 
 ## Quick Start
 
 ```bash
 # 1. Set up udev rules (one-time)
 sudo tee /etc/udev/rules.d/99-scuf.rules << 'EOF'
-SUBSYSTEM=="input", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="3a05", MODE="0666"
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="3a05", MODE="0666"
+SUBSYSTEM=="input", ATTRS{idVendor}=="2e95", ATTRS{idProduct}=="434e", MODE="0666"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2e95", ATTRS{idProduct}=="434e", MODE="0666"
 KERNEL=="uinput", MODE="0666"
 EOF
 
@@ -42,40 +42,11 @@ dotnet run --project src/Scufpad
 
 ## Game-Specific Configuration
 
-### Steam Games (Important!)
-
-For the best experience with Steam games, you need to **disable Steam Input** and tell SDL to ignore the physical
-controller:
-
-#### 1. Disable Steam Input for the Game
-
-1. Right-click the game in Steam → **Properties**
-2. Go to **Controller** tab
-3. Set **Override for [Game]** to **Disable Steam Input**
-
-#### 2. Add Launch Options (SDL Games)
-
-For games using SDL (like Stardew Valley), add this to the Steam launch options:
-
+## Disable the original controller!
+Add this export line to your terminal profile. ex. .bashrc
 ```
-SDL_GAMECONTROLLER_IGNORE_DEVICES=0x1b1c/0x3a05 %command%
+export SDL_GAMECONTROLLER_IGNORE_DEVICES=0x2e95/0x434e
 ```
-
-This tells SDL to ignore the physical Scuf controller so only the virtual Xbox controller is used.
-
-**Example for Stardew Valley:**
-
-1. Right-click Stardew Valley → **Properties**
-2. In **Launch Options**, enter:
-   ```
-   SDL_GAMECONTROLLER_IGNORE_DEVICES=0x1b1c/0x3a05 %command%
-   ```
-3. In the **Controller** tab, disable Steam Input
-
-### Non-Steam Games
-
-The bridge grabs the physical controller exclusively, so most games will only see the virtual Xbox controller. However,
-some games may need the `SDL_GAMECONTROLLER_IGNORE_DEVICES` environment variable set before launching.
 
 ## Setup Details
 
@@ -85,8 +56,8 @@ Create `/etc/udev/rules.d/99-scuf.rules`:
 
 ```bash
 sudo tee /etc/udev/rules.d/99-scuf.rules << 'EOF'
-SUBSYSTEM=="input", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="3a05", MODE="0666"
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="3a05", MODE="0666"
+SUBSYSTEM=="input", ATTRS{idVendor}=="2e95", ATTRS{idProduct}=="434e", MODE="0666"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2e95", ATTRS{idProduct}=="434e", MODE="0666"
 KERNEL=="uinput", MODE="0666"
 EOF
 ```
@@ -116,7 +87,7 @@ echo 'uinput' | sudo tee /etc/modules-load.d/uinput.conf
 
 ```bash
 # Check controller is detected
-lsusb | grep 1b1c:3a05
+lsusb | grep 2e95:434e
 
 # Check device permissions
 ls -la /dev/input/by-id/*Envision*
@@ -185,7 +156,7 @@ src/Scufpad/
 
 ## Hardware Mapping Reference
 
-### Scuf Envision Pro V2 Axis Mappings
+### Scuf Envision Pro V1 Axis Mappings
 
 The V2 uses completely non-standard axis positions:
 
@@ -202,7 +173,7 @@ The V2 uses completely non-standard axis positions:
 
 **Bold** = Non-standard mapping (differs from typical Xbox controllers)
 
-### Scuf Envision Pro V2 Button Mappings
+### Scuf Envision Pro V1 Button Mappings
 
 The V2 uses highly non-standard button codes:
 
@@ -218,7 +189,7 @@ The V2 uses highly non-standard button codes:
 | **R3**      | **BTN_TR2 (0x139)**  | BTN_THUMBR    | Right Stick Click |
 | Select      | BTN_TL (0x136)       | BTN_SELECT    | Back/Select       |
 | Start       | BTN_TR (0x137)       | BTN_START     | Start             |
-| Guide       | BTN_MODE (0x13c)     | BTN_MODE      | Guide/Home        |
+| Guide       | BTN_MODE (0x13c)     | BTN_MODE      | G2                |
 | Paddle 1    | BTN_TRIGGER_HAPPY1   | -             | Paddle 1          |
 | Paddle 2    | BTN_TRIGGER_HAPPY2   | -             | Paddle 2          |
 | Paddle 3    | BTN_TRIGGER_HAPPY3   | -             | Paddle 3          |
@@ -271,29 +242,13 @@ lsmod | grep uinput
 
 ```bash
 # Check USB connection
-lsusb | grep 1b1c
+lsusb | grep 2e95
 
 # View kernel messages
 dmesg | tail -20
 
-# Ensure you have the V2 controller (PID 3a05)
+# Ensure you have the V1 controller (PID 434e)
 ```
-
-### Game sees both controllers / double input
-
-Make sure:
-
-1. The bridge is running before starting the game
-2. Steam Input is disabled for the game
-3. `SDL_GAMECONTROLLER_IGNORE_DEVICES=0x1b1c/0x3a05` is set (for SDL games)
-
-### Trigger feels laggy or unresponsive
-
-This was fixed in recent updates. If you experience trigger latency:
-
-1. Ensure you're running the latest version
-2. The poll timeout should be 4ms (not 100ms)
-3. The trigger jitter threshold should be 20 (not 75)
 
 ## Building
 
@@ -324,26 +279,6 @@ dotnet test tests/scufpad.Tests.Integration
 # Test with evtest
 evtest  # Select the virtual Xbox controller to verify output
 ```
-
-## Technical Notes
-
-### Why evdev grab is necessary
-
-The bridge grabs the physical controller exclusively using `EVIOCGRAB` to:
-
-1. Prevent games from seeing the raw Scuf input with wrong mappings
-2. Prevent double-input (one from physical, one from virtual)
-
-### Why hidraw is optional on V2
-
-V1 hardware reportedly didn't expose the right trigger via evdev, requiring hidraw fallback. V2 hardware provides both
-triggers via evdev (`ABS_RX` for LT, `ABS_RY` for RT), so hidraw is no longer needed. Hidraw processing is disabled to
-avoid latency issues from stale data.
-
-### Multiple evdev devices
-
-The Scuf controller exposes multiple input devices (joystick, mouse emulation, etc.). All are grabbed exclusively to
-prevent input leakage.
 
 ## License
 

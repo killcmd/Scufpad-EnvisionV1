@@ -15,7 +15,7 @@
 // Requirements:
 //   - Linux with uinput support (sudo modprobe uinput)
 //   - Appropriate udev rules for device permissions
-//   - Scuf Envision Pro V2 controller (VID: 0x1b1c, PID: 0x3a05)
+//   - Scuf Envision Pro V2 controller (VID: 0x2e95, PID: 0x434e)
 //
 // See README.md for full setup instructions.
 
@@ -55,8 +55,8 @@ if (devices is null)
           3. Check permissions: ls -la /dev/input/
 
         To grant permissions, create /etc/udev/rules.d/99-scufpad.rules:
-          SUBSYSTEM=="input", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="3a05", MODE="0666"
-          SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1b1c", ATTRS{idProduct}=="3a05", MODE="0666"
+          SUBSYSTEM=="input", ATTRS{idVendor}=="2e95", ATTRS{idProduct}=="434e", MODE="0666"
+          SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2e95", ATTRS{idProduct}=="434e", MODE="0666"
           KERNEL=="uinput", MODE="0666"
 
         Then reload udev: sudo udevadm control --reload && sudo udevadm trigger

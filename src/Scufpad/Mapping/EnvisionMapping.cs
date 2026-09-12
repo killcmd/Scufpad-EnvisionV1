@@ -7,7 +7,7 @@ namespace Scufpad.Mapping;
 /// </summary>
 /// <remarks>
 ///     <para>
-///         The Scuf Envision Pro V2 (VID: 0x1b1c, PID: 0x3a05) uses non-standard evdev
+///         The Scuf Envision Pro V2 (VID: 0x2e95, PID: 0x434e) uses non-standard evdev
 ///         mappings that differ significantly from standard Xbox controllers. This class
 ///         translates those inputs to the standard Xbox Elite 2 format expected by games.
 ///     </para>
