@@ -16,7 +16,7 @@ internal sealed class DiscoveredDevices
 
     /// <summary>
     ///     Path to the hidraw device (e.g., "/dev/hidraw0").
-    ///     Used for raw HID reports. On V2 hardware this is optional since both
+    ///     Used for raw HID reports. On V1 hardware this is optional since both
     ///     triggers are available via evdev.
     /// </summary>
     public required string HidrawPath { get; init; }
@@ -31,7 +31,7 @@ internal sealed class DiscoveredDevices
 }
 
 /// <summary>
-///     Discovers Scuf Envision Pro V2 controller devices by scanning /sys/class.
+///     Discovers Scuf Envision Pro V1 controller devices by scanning /sys/class.
 ///     Finds both evdev (input events) and hidraw (raw HID reports) devices
 ///     by matching the controller's USB vendor/product IDs.
 /// </summary>
@@ -43,12 +43,12 @@ internal static class DeviceDiscovery
     private const ushort ScufVendorId = 0x2e95;
 
     /// <summary>
-    ///     Scuf Envision Pro V2 USB Product ID.
+    ///     Scuf Envision Pro V1 USB Product ID.
     /// </summary>
     private const ushort ScufProductId = 0x434e;
 
     /// <summary>
-    ///     Searches for connected Scuf Envision Pro V2 controller devices.
+    ///     Searches for connected Scuf Envision Pro V1 controller devices.
     ///     Scans /sys/class/input for evdev devices and /sys/class/hidraw for hidraw devices
     ///     matching the Scuf vendor/product IDs.
     /// </summary>

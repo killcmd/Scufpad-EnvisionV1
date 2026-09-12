@@ -36,7 +36,7 @@ public class MappingIntegrationTests
 
             // Buttons
             CreateKeyEvent(ButtonCodes.BTN_SOUTH, 1), // A pressed
-            CreateKeyEvent(ButtonCodes.BTN_Z, 1), // RB pressed (V2 uses BTN_Z for RB)
+            CreateKeyEvent(ButtonCodes.BTN_Z, 1), // RB pressed (V1 uses BTN_Z for RB)
 
             // Sync
             CreateSynEvent()
@@ -117,9 +117,9 @@ public class MappingIntegrationTests
         var filteredState = new InputState();
         var filter = new InputFilter();
 
-        // Evdev events - V2 hardware provides both triggers via evdev
+        // Evdev events - V1 hardware provides both triggers via evdev
         var evLt = CreateAbsEvent(AbsCodes.ABS_RX, 800); // Left trigger from evdev
-        var evRt = CreateAbsEvent(AbsCodes.ABS_RY, 600); // Right trigger from evdev (V2)
+        var evRt = CreateAbsEvent(AbsCodes.ABS_RY, 600); // Right trigger from evdev (V1)
         var evA = CreateKeyEvent(ButtonCodes.BTN_SOUTH, 1);
         var evSyn = CreateSynEvent();
 
@@ -169,7 +169,7 @@ public class MappingIntegrationTests
     {
         var state = new InputState();
 
-        // Press all face buttons (V2 uses BTN_C for X, not BTN_WEST)
+        // Press all face buttons (V1 uses BTN_C for X, not BTN_WEST)
         var evA = CreateKeyEvent(ButtonCodes.BTN_SOUTH, 1);
         var evB = CreateKeyEvent(ButtonCodes.BTN_EAST, 1);
         var evX = CreateKeyEvent(ButtonCodes.BTN_C, 1);

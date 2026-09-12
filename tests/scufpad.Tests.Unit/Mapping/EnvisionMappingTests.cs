@@ -226,7 +226,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_C_Pressed_ShouldSetButtonX()
     {
-        // V2: BTN_C maps to X button (non-standard)
+        // V1: BTN_C maps to X button (non-standard)
         var ev = CreateKeyEvent(ButtonCodes.BTN_C, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -237,7 +237,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_WEST_Pressed_ShouldSetBumperLeft()
     {
-        // V2: BTN_WEST maps to LB (non-standard)
+        // V1: BTN_WEST maps to LB (non-standard)
         var ev = CreateKeyEvent(ButtonCodes.BTN_WEST, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -248,7 +248,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_Z_Pressed_ShouldSetBumperRight()
     {
-        // V2: BTN_Z maps to RB (non-standard)
+        // V1: BTN_Z maps to RB (non-standard)
         var ev = CreateKeyEvent(ButtonCodes.BTN_Z, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -259,7 +259,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_TL_Pressed_ShouldSetButtonSelect()
     {
-        // V2: BTN_TL maps to Select (non-standard)
+        // V1: BTN_TL maps to Select (non-standard)
         var ev = CreateKeyEvent(ButtonCodes.BTN_TL, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -271,7 +271,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_TL_Released_ShouldClearButtonSelect()
     {
-        // V2: BTN_TL maps to Select (non-standard)
+        // V1: BTN_TL maps to Select (non-standard)
         _state.ButtonSelect = true;
         var ev = CreateKeyEvent(ButtonCodes.BTN_TL, 0);
 
@@ -283,7 +283,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_TR_Pressed_ShouldSetButtonStart()
     {
-        // V2: BTN_TR maps to Start (non-standard)
+        // V1: BTN_TR maps to Start (non-standard)
         var ev = CreateKeyEvent(ButtonCodes.BTN_TR, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -294,7 +294,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_TR_Released_ShouldClearButtonStart()
     {
-        // V2: BTN_TR maps to Start (non-standard)
+        // V1: BTN_TR maps to Start (non-standard)
         _state.ButtonStart = true;
         var ev = CreateKeyEvent(ButtonCodes.BTN_TR, 0);
 
@@ -306,7 +306,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_TL2_Pressed_ShouldSetThumbLeft()
     {
-        // V2: BTN_TL2 maps to left stick click (L3)
+        // V1: BTN_TL2 maps to left stick click (L3)
         var ev = CreateKeyEvent(ButtonCodes.BTN_TL2, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -318,7 +318,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_TR2_Pressed_ShouldSetThumbRight()
     {
-        // V2: BTN_TR2 maps to right stick click (R3)
+        // V1: BTN_TR2 maps to right stick click (R3)
         var ev = CreateKeyEvent(ButtonCodes.BTN_TR2, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -330,8 +330,8 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_START_ShouldNotAffectState()
     {
-        // V2 hardware uses BTN_TR for Start button, not BTN_START
-        // BTN_START code is not emitted by V2 hardware
+        // V1 hardware uses BTN_TR for Start button, not BTN_START
+        // BTN_START code is not emitted by V1 hardware
         var ev = CreateKeyEvent(ButtonCodes.BTN_START, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -342,8 +342,8 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_SELECT_ShouldNotAffectState()
     {
-        // V2 hardware uses BTN_TL for Select button, not BTN_SELECT
-        // BTN_SELECT code is not emitted by V2 hardware
+        // V1 hardware uses BTN_TL for Select button, not BTN_SELECT
+        // BTN_SELECT code is not emitted by V1 hardware
         var ev = CreateKeyEvent(ButtonCodes.BTN_SELECT, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -364,7 +364,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_THUMBL_ShouldNotAffectState()
     {
-        // V2: BTN_THUMBL is not used - stick clicks are BTN_TL2/TR2
+        // V1: BTN_THUMBL is not used - stick clicks are BTN_TL2/TR2
         var ev = CreateKeyEvent(ButtonCodes.BTN_THUMBL, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
@@ -375,7 +375,7 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_THUMBR_ShouldNotAffectState()
     {
-        // V2: BTN_THUMBR is not used - stick clicks are BTN_TL2/TR2
+        // V1: BTN_THUMBR is not used - stick clicks are BTN_TL2/TR2
         var ev = CreateKeyEvent(ButtonCodes.BTN_THUMBR, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);

@@ -17,7 +17,7 @@ namespace Scufpad.Mapping;
 ///         This prevents noisy input from unstable analog hardware.
 ///     </para>
 ///     <para>
-///         Default values are tuned for the Scuf Envision Pro V2:
+///         Default values are tuned for the Scuf Envision Pro V1:
 ///         - Stick deadzone: 3500 (~10.7% of range) - aggressive to eliminate drift
 ///         - Trigger deadzone: 10 (~1% of range) - minimal for responsive triggers
 ///         - Stick jitter threshold: 300 - filters small fluctuations

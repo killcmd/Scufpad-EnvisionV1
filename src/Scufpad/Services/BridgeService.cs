@@ -57,7 +57,7 @@ internal sealed class BridgeService : IDisposable
     ///     Creates a new bridge service.
     /// </summary>
     /// <param name="evdev">The evdev reader for the physical controller.</param>
-    /// <param name="hidraw">Optional hidraw reader (currently unused for V2 hardware).</param>
+    /// <param name="hidraw">Optional hidraw reader (currently unused for V1 hardware).</param>
     /// <param name="virtualGamepad">The virtual Xbox controller to emit to.</param>
     public BridgeService(
         EvdevReader evdev,

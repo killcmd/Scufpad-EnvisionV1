@@ -1,11 +1,11 @@
-// Scufpad - Scuf Envision Pro V2 to Xbox Controller Bridge
+// Scufpad - Scuf Envision Pro V1 to Xbox Controller Bridge
 //
-// This application bridges a Scuf Envision Pro V2 controller to a virtual Xbox Elite 2
+// This application bridges a Scuf Envision Pro V1 controller to a virtual Xbox Elite 2
 // controller via the Linux uinput subsystem. It reads from the physical controller's
 // evdev/hidraw devices, translates the non-standard input mappings, and outputs to a
 // virtual gamepad that games recognize as a standard Xbox controller.
 //
-// The Scuf Envision Pro V2 uses highly non-standard evdev mappings that cause incorrect
+// The Scuf Envision Pro V1 uses highly non-standard evdev mappings that cause incorrect
 // button/axis assignments in most games. This bridge fixes that by remapping everything
 // to standard Xbox Elite 2 format.
 //
@@ -15,7 +15,7 @@
 // Requirements:
 //   - Linux with uinput support (sudo modprobe uinput)
 //   - Appropriate udev rules for device permissions
-//   - Scuf Envision Pro V2 controller (VID: 0x2e95, PID: 0x434e)
+//   - Scuf Envision Pro V1 controller (VID: 0x2e95, PID: 0x434e)
 //
 // See README.md for full setup instructions.
 
@@ -26,7 +26,7 @@ using Scufpad.Services;
 
 Console.WriteLine(
     """
-    Scuf Envision Pro V2 to Xbox Controller Bridge
+    Scuf Envision Pro V1 to Xbox Controller Bridge
     ==============================================
     
     """);

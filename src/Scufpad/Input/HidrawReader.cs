@@ -6,7 +6,7 @@ namespace Scufpad.Input;
 ///     Reads raw HID reports from a Linux hidraw device.
 ///     Hidraw provides direct access to HID (Human Interface Device) reports,
 ///     which can contain data not exposed through the standard evdev interface.
-///     Note: On Scuf Envision Pro V2 hardware, both triggers are available via evdev,
+///     Note: On Scuf Envision Pro V1 hardware, both triggers are available via evdev,
 ///     so hidraw reading is optional and currently disabled to avoid latency issues.
 ///     This class is kept for potential V1 hardware support or future use.
 /// </summary>

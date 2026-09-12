@@ -144,7 +144,7 @@ src/Scufpad/
 │   ├── LinuxInput.cs    # input_event struct, button/axis codes
 │   └── Uinput.cs        # uinput ioctl constants
 ├── Mapping/             # Input translation and filtering
-│   ├── EnvisionMapping.cs  # Scuf V2 → Xbox mapping
+│   ├── EnvisionMapping.cs  # Scuf V1 → Xbox mapping
 │   ├── InputFilter.cs      # Deadzone and jitter filtering
 │   └── InputState.cs       # Controller state representation
 ├── Output/              # Virtual device creation
@@ -158,7 +158,7 @@ src/Scufpad/
 
 ### Scuf Envision Pro V1 Axis Mappings
 
-The V2 uses completely non-standard axis positions:
+The V1 uses completely non-standard axis positions:
 
 | Scuf Axis         | evdev Code     | Value Range     | Maps To       |
 |-------------------|----------------|-----------------|---------------|
@@ -175,7 +175,7 @@ The V2 uses completely non-standard axis positions:
 
 ### Scuf Envision Pro V1 Button Mappings
 
-The V2 uses highly non-standard button codes:
+The V1 uses highly non-standard button codes:
 
 | Scuf Button | evdev Code           | Standard Code | Maps To           |
 |-------------|----------------------|---------------|-------------------|
@@ -196,7 +196,7 @@ The V2 uses highly non-standard button codes:
 
 **Bold** = Non-standard mapping
 
-**Note:** The V2 only has 3 paddle buttons, not 4.
+**Note:** The V1 only has 3 paddle buttons, not 4.
 
 ## Performance Tuning
 

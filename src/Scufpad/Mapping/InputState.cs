@@ -147,7 +147,7 @@ internal sealed class InputState
     /// <summary>Paddle 3 (P3) state.</summary>
     public bool Paddle3 { get; set; }
 
-    /// <summary>Paddle 4 (P4) state. Note: Scuf V2 only has 3 paddles.</summary>
+    /// <summary>Paddle 4 (P4) state. Note: Scuf V1 only has 3 paddles.</summary>
     public bool Paddle4 { get; set; }
 
     /// <summary>

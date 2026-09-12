@@ -167,7 +167,7 @@ internal static class SynCodes
 ///     These are the standard Linux kernel button codes used by evdev.
 /// </summary>
 /// <remarks>
-///     Note: The Scuf Envision Pro V2 uses non-standard button codes.
+///     Note: The Scuf Envision Pro V1 uses non-standard button codes.
 ///     See <see cref="Mapping.EnvisionMapping" /> for the actual mappings.
 /// </remarks>
 internal static class ButtonCodes
@@ -190,7 +190,7 @@ internal static class ButtonCodes
     /// <summary>Alias for BTN_EAST.</summary>
     public const ushort BTN_B = BTN_EAST;
 
-    /// <summary>C button (used by Scuf V2 for X button).</summary>
+    /// <summary>C button (used by Scuf V1 for X button).</summary>
     public const ushort BTN_C = 0x132;
 
     /// <summary>North button (Y on Xbox, Triangle on PlayStation).</summary>
@@ -199,25 +199,25 @@ internal static class ButtonCodes
     /// <summary>Alias for BTN_NORTH (confusingly named in kernel).</summary>
     public const ushort BTN_X = BTN_NORTH;
 
-    /// <summary>West button (X on Xbox, Square on PlayStation). Used by Scuf V2 for LB.</summary>
+    /// <summary>West button (X on Xbox, Square on PlayStation). Used by Scuf V1 for LB.</summary>
     public const ushort BTN_WEST = 0x134;
 
     /// <summary>Alias for BTN_WEST (confusingly named in kernel).</summary>
     public const ushort BTN_Y = BTN_WEST;
 
-    /// <summary>Z button (used by Scuf V2 for RB).</summary>
+    /// <summary>Z button (used by Scuf V1 for RB).</summary>
     public const ushort BTN_Z = 0x135;
 
-    /// <summary>Left bumper / L1 (standard). Used by Scuf V2 for Select.</summary>
+    /// <summary>Left bumper / L1 (standard). Used by Scuf V1 for Select.</summary>
     public const ushort BTN_TL = 0x136;
 
-    /// <summary>Right bumper / R1 (standard). Used by Scuf V2 for Start.</summary>
+    /// <summary>Right bumper / R1 (standard). Used by Scuf V1 for Start.</summary>
     public const ushort BTN_TR = 0x137;
 
-    /// <summary>Left trigger button / L2 (standard). Used by Scuf V2 for L3.</summary>
+    /// <summary>Left trigger button / L2 (standard). Used by Scuf V1 for L3.</summary>
     public const ushort BTN_TL2 = 0x138;
 
-    /// <summary>Right trigger button / R2 (standard). Used by Scuf V2 for R3.</summary>
+    /// <summary>Right trigger button / R2 (standard). Used by Scuf V1 for R3.</summary>
     public const ushort BTN_TR2 = 0x139;
 
     /// <summary>Back / Share / Select button.</summary>
@@ -253,7 +253,7 @@ internal static class ButtonCodes
 ///     These are the standard Linux kernel axis codes used by evdev.
 /// </summary>
 /// <remarks>
-///     Note: The Scuf Envision Pro V2 uses non-standard axis assignments.
+///     Note: The Scuf Envision Pro V1 uses non-standard axis assignments.
 ///     See <see cref="Mapping.EnvisionMapping" /> for the actual mappings.
 /// </remarks>
 internal static class AbsCodes
@@ -264,16 +264,16 @@ internal static class AbsCodes
     /// <summary>Left stick Y axis (standard).</summary>
     public const ushort ABS_Y = 0x01;
 
-    /// <summary>Z axis - typically left trigger, but Scuf V2 uses for right stick X.</summary>
+    /// <summary>Z axis - typically left trigger, but Scuf V1 uses for right stick X.</summary>
     public const ushort ABS_Z = 0x02;
 
-    /// <summary>Right stick X (standard), but Scuf V2 uses for left trigger.</summary>
+    /// <summary>Right stick X (standard), but Scuf V1 uses for left trigger.</summary>
     public const ushort ABS_RX = 0x03;
 
-    /// <summary>Right stick Y (standard), but Scuf V2 uses for right trigger.</summary>
+    /// <summary>Right stick Y (standard), but Scuf V1 uses for right trigger.</summary>
     public const ushort ABS_RY = 0x04;
 
-    /// <summary>Right trigger (standard), but Scuf V2 uses for right stick Y.</summary>
+    /// <summary>Right trigger (standard), but Scuf V1 uses for right stick Y.</summary>
     public const ushort ABS_RZ = 0x05;
 
     /// <summary>D-pad X axis (-1 = left, 0 = center, 1 = right).</summary>

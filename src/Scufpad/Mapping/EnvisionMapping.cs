@@ -3,16 +3,16 @@ using Scufpad.Interop;
 namespace Scufpad.Mapping;
 
 /// <summary>
-///     Maps Scuf Envision Pro V2 inputs to standard Xbox controller format.
+///     Maps Scuf Envision Pro V1 inputs to standard Xbox controller format.
 /// </summary>
 /// <remarks>
 ///     <para>
-///         The Scuf Envision Pro V2 (VID: 0x2e95, PID: 0x434e) uses non-standard evdev
+///         The Scuf Envision Pro V1 (VID: 0x2e95, PID: 0x434e) uses non-standard evdev
 ///         mappings that differ significantly from standard Xbox controllers. This class
 ///         translates those inputs to the standard Xbox Elite 2 format expected by games.
 ///     </para>
 ///     <para>
-///         <b>VERIFIED V2 axis mappings:</b>
+///         <b>VERIFIED V1 axis mappings:</b>
 ///     </para>
 ///     <list type="table">
 ///         <listheader>
@@ -42,7 +42,7 @@ namespace Scufpad.Mapping;
 ///         </item>
 ///     </list>
 ///     <para>
-///         <b>VERIFIED V2 button mappings (highly non-standard!):</b>
+///         <b>VERIFIED V1 button mappings (highly non-standard!):</b>
 ///     </para>
 ///     <list type="table">
 ///         <listheader>
@@ -74,11 +74,11 @@ namespace Scufpad.Mapping;
 ///             <term>BTN_TR2 (0x139)</term><description>R3 / Right Stick Click (non-standard!)</description>
 ///         </item>
 ///         <item>
-///             <term>BTN_TRIGGER_HAPPY1-3</term><description>Paddles 1-3 (V2 only has 3 paddles)</description>
+///             <term>BTN_TRIGGER_HAPPY1-3</term><description>Paddles 1-3 (V1 only has 3 paddles)</description>
 ///         </item>
 ///     </list>
 ///     <para>
-///         Both triggers are available via evdev on V2 hardware, so the hidraw fallback
+///         Both triggers are available via evdev on V1 hardware, so the hidraw fallback
 ///         is disabled to prevent latency issues from stale data overwrites.
 ///     </para>
 /// </remarks>
@@ -112,7 +112,7 @@ internal static class EnvisionMapping
     }
 
     /// <summary>
-    ///     Processes an absolute axis event with Scuf V2 non-standard mappings.
+    ///     Processes an absolute axis event with Scuf V1 non-standard mappings.
     /// </summary>
     /// <param name="code">The axis code (ABS_X, ABS_Y, etc.).</param>
     /// <param name="value">The axis value.</param>
@@ -168,13 +168,13 @@ internal static class EnvisionMapping
     }
 
     /// <summary>
-    ///     Processes a button event with Scuf V2 non-standard mappings.
+    ///     Processes a button event with Scuf V1 non-standard mappings.
     /// </summary>
     /// <param name="code">The button code.</param>
     /// <param name="pressed">Whether the button is pressed.</param>
     /// <param name="state">The input state to update.</param>
     /// <remarks>
-    ///     The Scuf V2 uses highly non-standard button codes:
+    ///     The Scuf V1 uses highly non-standard button codes:
     ///     - BTN_C for X button (instead of BTN_WEST)
     ///     - BTN_WEST for LB (instead of BTN_TL)
     ///     - BTN_Z for RB (instead of BTN_TR)
@@ -227,12 +227,12 @@ internal static class EnvisionMapping
                 state.MarkDirty();
                 break;
 
-            case ButtonCodes.BTN_TL: // Select on V2
+            case ButtonCodes.BTN_TL: // Select on V1
                 state.ButtonSelect = pressed;
                 state.MarkDirty();
                 break;
 
-            case ButtonCodes.BTN_TR: // Start on V2
+            case ButtonCodes.BTN_TR: // Start on V1
                 state.ButtonStart = pressed;
                 state.MarkDirty();
                 break;
@@ -242,7 +242,7 @@ internal static class EnvisionMapping
                 state.MarkDirty();
                 break;
 
-            // Legacy standard mappings (not used on V2)
+            // Legacy standard mappings (not used on V1)
             case ButtonCodes.BTN_THUMBL:
             case ButtonCodes.BTN_THUMBR:
                 break;
