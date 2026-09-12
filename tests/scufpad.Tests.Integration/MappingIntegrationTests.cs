@@ -169,11 +169,11 @@ public class MappingIntegrationTests
     {
         var state = new InputState();
 
-        // Press all face buttons (V1 uses BTN_C for X, not BTN_WEST)
+        // Press all face buttons (V1 uses BTN_C for Y, not BTN_WEST)
         var evA = CreateKeyEvent(ButtonCodes.BTN_SOUTH, 1);
         var evB = CreateKeyEvent(ButtonCodes.BTN_EAST, 1);
-        var evX = CreateKeyEvent(ButtonCodes.BTN_C, 1);
-        var evY = CreateKeyEvent(ButtonCodes.BTN_NORTH, 1);
+        var evX = CreateKeyEvent(ButtonCodes.BTN_NORTH, 1);
+        var evY = CreateKeyEvent(ButtonCodes.BTN_C, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in evA, state);
         EnvisionMapping.ProcessEvdevEvent(in evB, state);

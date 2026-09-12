@@ -223,10 +223,10 @@ public class ButtonCodesTests
         ButtonCodes.BTN_A.ShouldBe(ButtonCodes.BTN_SOUTH);
         ButtonCodes.BTN_EAST.ShouldBe((ushort)0x131); // B
         ButtonCodes.BTN_B.ShouldBe(ButtonCodes.BTN_EAST);
-        ButtonCodes.BTN_C.ShouldBe((ushort)0x132);
-        ButtonCodes.BTN_NORTH.ShouldBe((ushort)0x133); // Y
+        ButtonCodes.BTN_C.ShouldBe((ushort)0x132); // Y
+        ButtonCodes.BTN_NORTH.ShouldBe((ushort)0x133); // X
         ButtonCodes.BTN_X.ShouldBe(ButtonCodes.BTN_NORTH);
-        ButtonCodes.BTN_WEST.ShouldBe((ushort)0x134); // X
+        ButtonCodes.BTN_WEST.ShouldBe((ushort)0x134); 
         ButtonCodes.BTN_Y.ShouldBe(ButtonCodes.BTN_WEST);
         ButtonCodes.BTN_Z.ShouldBe((ushort)0x135);
     }

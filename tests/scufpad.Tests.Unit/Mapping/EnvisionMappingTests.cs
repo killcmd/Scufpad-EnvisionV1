@@ -215,23 +215,23 @@ public class EnvisionMappingTests
     [Test]
     public void ProcessEvdevEvent_BTN_NORTH_Pressed_ShouldSetButtonY()
     {
-        // BTN_NORTH maps to Y in Xbox naming convention
+        // BTN_NORTH maps to X in Xbox naming convention
         var ev = CreateKeyEvent(ButtonCodes.BTN_NORTH, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
 
-        _state.ButtonY.ShouldBeTrue();
+        _state.ButtonX.ShouldBeTrue();
     }
 
     [Test]
     public void ProcessEvdevEvent_BTN_C_Pressed_ShouldSetButtonX()
     {
-        // V1: BTN_C maps to X button (non-standard)
+        // V1: BTN_C maps to Y button (non-standard)
         var ev = CreateKeyEvent(ButtonCodes.BTN_C, 1);
 
         EnvisionMapping.ProcessEvdevEvent(in ev, _state);
 
-        _state.ButtonX.ShouldBeTrue();
+        _state.ButtonY.ShouldBeTrue();
     }
 
     [Test]

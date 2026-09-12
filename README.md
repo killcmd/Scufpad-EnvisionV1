@@ -181,8 +181,8 @@ The V1 uses highly non-standard button codes:
 |-------------|----------------------|---------------|-------------------|
 | A           | BTN_SOUTH (0x130)    | BTN_SOUTH     | A Button          |
 | B           | BTN_EAST (0x131)     | BTN_EAST      | B Button          |
-| **X**       | **BTN_C (0x132)**    | BTN_WEST      | X Button          |
-| Y           | BTN_NORTH (0x133)    | BTN_NORTH     | Y Button          |
+| **X**       | **BTN_NORTH (0x132)**    | BTN_WEST      | X Button          |
+| Y           | BTN_C (0x133)    | BTN_NORTH     | Y Button          |
 | **LB**      | **BTN_WEST (0x134)** | BTN_TL        | Left Bumper       |
 | **RB**      | **BTN_Z (0x135)**    | BTN_TR        | Right Bumper      |
 | **L3**      | **BTN_TL2 (0x138)**  | BTN_THUMBL    | Left Stick Click  |

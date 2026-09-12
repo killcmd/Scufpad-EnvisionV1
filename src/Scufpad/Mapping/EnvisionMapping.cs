@@ -56,10 +56,10 @@ namespace Scufpad.Mapping;
 ///             <term>BTN_EAST (0x131)</term><description>B button</description>
 ///         </item>
 ///         <item>
-///             <term>BTN_C (0x132)</term><description>X button (non-standard!)</description>
+///             <term>BTN_C (0x132)</term><description>Y button (non-standard!)</description>
 ///         </item>
 ///         <item>
-///             <term>BTN_NORTH (0x133)</term><description>Y button</description>
+///             <term>BTN_NORTH (0x133)</term><description>X button</description>
 ///         </item>
 ///         <item>
 ///             <term>BTN_WEST (0x134)</term><description>Left Bumper (non-standard!)</description>
@@ -175,7 +175,7 @@ internal static class EnvisionMapping
     /// <param name="state">The input state to update.</param>
     /// <remarks>
     ///     The Scuf V1 uses highly non-standard button codes:
-    ///     - BTN_C for X button (instead of BTN_WEST)
+    ///     - BTN_NORTH for X button (instead of BTN_WEST)
     ///     - BTN_WEST for LB (instead of BTN_TL)
     ///     - BTN_Z for RB (instead of BTN_TR)
     ///     - BTN_TL2 for L3 (instead of BTN_THUMBL)
@@ -196,12 +196,12 @@ internal static class EnvisionMapping
                 state.MarkDirty();
                 break;
 
-            case ButtonCodes.BTN_C: // X (non-standard!)
+            case ButtonCodes.BTN_NORTH: // X (non-standard!)
                 state.ButtonX = pressed;
                 state.MarkDirty();
                 break;
 
-            case ButtonCodes.BTN_NORTH: // Y
+            case ButtonCodes.BTN_C: // Y
                 state.ButtonY = pressed;
                 state.MarkDirty();
                 break;
